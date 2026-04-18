@@ -270,11 +270,12 @@
                                     </div>
                                 </div>
 
-                                <div className="hidden">
+                                {/* iframe hidden fix: Do NOT use display:none or .hidden */}
+                                <div style={{ width: 0, height: 0, opacity: 0, position: 'absolute', pointerEvents: 'none' }}>
                                     <iframe 
                                         key={selectedGift.id}
-                                        width="0" 
-                                        height="0" 
+                                        width="100" 
+                                        height="100" 
                                         src={`https://www.youtube.com/embed/${selectedGift.youtubeId}?autoplay=1&mute=0&enablejsapi=1&rel=0&origin=${window.location.origin}`} 
                                         allow="autoplay; encrypted-media"
                                         frameBorder="0"
